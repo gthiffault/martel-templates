@@ -1,0 +1,21 @@
+{% set jobs = craft.entries.section('availableJobs').level(1).limit(3).all() %}
+
+
+<section class="o-section c-available-jobs">
+	<div class="o-wrapper">
+		<h2 aria-label="Emplois disponibles">{{"available jobs"|t}}</h2>
+		<ul class="o-list-bare c-accordion_ul">
+			{% if jobs|length %}
+			{% for job in jobs %}
+				<li class="c-accordion_li">
+					<div class="c-accordion_title">
+						<h3>{{job.title}}</h3>	
+					</div>
+				</li>
+			{% endfor %}
+			{% else %}
+				<p>Message d'erreur à écrire</p>
+			{% endif %}
+		</ul>		
+	</div>
+</section>

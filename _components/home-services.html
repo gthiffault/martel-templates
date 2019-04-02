@@ -1,0 +1,18 @@
+<section class="o-section c-home_services">
+	<div class="o-wrapper">
+		<h2>{{"Our "}}<span class="c-title-w-color">{{"services"}}</span></h2>
+		{% set pages = craft.entries.section('services').level(1).limit(3).all() %}
+	    <ul class="o-layout layout--equal-height">
+	        {% for page in pages %}
+	            <li class="o-layout__item c-home_services_li u-1/3">
+	            	<div class="c-home_services_wrap">
+	            		{% if page.servicesIcon|length %}<img class="c-home_services_icon" src="{{page.servicesIcon.one().url}}" alt="{{page.servicesIcon.one().title}}">{% endif %}
+	            		<h3>{{ page.title }}</h3>
+	            		<p>{{page.servicesDescription}}</p>
+	            		<a class="c-btn c-btn--primary">{{"Learn more"|t}}</a>
+	            	</div>
+	            </li>
+	        {% endfor %}
+	    </ul>
+	</div>
+</section>

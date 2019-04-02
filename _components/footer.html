@@ -1,0 +1,29 @@
+<footer class="c-footer">
+	<div class="c-footer_info">
+		<div class="o-wrapper">
+			<div class="o-layout">
+				<div class="o-layout__item u-1/4">
+					<img src="{{ craft.app.sites.primarySite.baseUrl }}assets/images/logos/excavation-l-martel-logo-footer.svg" alt="Excavation L. Martel inc.">
+				</div>
+				<div class="o-layout__item u-1/4">
+					<p class="c-footer_title">{{"Links"|t}}</p>
+				</div>
+				<div class="o-layout__item u-1/4">
+					<p class="c-footer_title">{{"Visit us"|t}}</p>
+					<p>{{info.infoAddress|nl2br}}</p>
+				</div>
+				<div class="o-layout__item u-1/4">
+					<p class="c-footer_title">{{"Contact Us"|t}}</p>
+					<p>{{info.infoPhone}}
+					<br><a href="mailto:{{info.infoEmail}}">{{info.infoEmail}}</a></p>
+					<a class="c-facebook" href="{{info.infoFacebook}}" target="_blank"></a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="c-footer_copyright">
+		<div class="o-wrapper">
+			<small class="c-copyright">&#9400; {{now|date('Y')}} {{"All rights reserved"|t}} - {{ craft.app.sites.primarySite.name }} - RBQ : {{info.infoRBQ}} - {{"Signed Zel"}}</small>
+		</div>
+	</div>
+</footer>

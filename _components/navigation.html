@@ -1,0 +1,47 @@
+<div class="c-header_nav">
+	<div class="o-wrapper">
+		<div class="c-navigation">
+			<div class="c-header_logo" aria-role="image">
+				<img src="{{ craft.app.sites.primarySite.baseUrl }}assets/images/logos/excavation-l-martel-inc_logo.svg" alt="Excavation L. Martel inc.">
+			</div>
+			<nav class="c-header_links" aria-label="Liens utiles" aria-des>
+				<ul class="o-list-bare c-navigation_ul">
+					{% set currentLanguage = currentSite.language %}
+					{# Decide which languages should be omitted from language links #}
+					{% set languageExceptions = currentSite.language %}
+					{% set otherLocales = craft.app.sites.getAllSites()|without(currentSite.id) %}
+					{% for site in otherLocales %}
+					    {% if site.id != currentSite.id %}
+					        {% if entry is defined %}
+					        {% set localeEntry = craft.entries.id(entry.id).siteId(site.id).one() %} 
+					        {% endif %}
+
+					        {% if localeEntry.siteId is defined and localeEntry.siteId != currentSite.id %}
+					            {# If entry is localized in other language go there #}
+					            <li class="c-language-switcher">
+					                <a href="{{ localeEntry.url }} "{% if currentSite.language == "fr" %} aria-label="Changer la langue actuelle pour l'anglais">En{%else%}Fr{% endif %}</a>
+					            </li>
+					        {% else %}
+					            {# if not localized go to homepage #}
+					            <a href="/"></a>
+					        {% endif %}
+					    {% endif %}
+					{% endfor %}
+					<li class="c-phone">
+						<a href="tel:{{info.infoPhone}}" aria-label="Pour communiquer avec nous {{info.infoPhone}}" aria-disabled="true">{{info.infoPhone}}</a> 
+					</li>	
+					<li class="c-facebook">
+						<a href="{{info.infoFacebook}}" target="_blank" aria-label="Consultez notre page facebook"></a>
+					</li>				
+				</ul>
+			</nav>
+			<div class="c-header_button">
+				<button class="hamburger" type="button" aria-label="Affichez le menu principal" aria-role="Menu">
+  					<span class="hamburger-box">
+    					<span class="hamburger-inner"></span>
+  					</span>
+				</button>  
+			</div>
+		</div>
+	</div>
+</div>

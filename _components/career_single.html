@@ -1,0 +1,48 @@
+<h2>{{entry.title}}</h2>
+<ul class="c-accordion_ul">
+	<li class="c-accordion_li">
+		<div class="c-accordion_title">
+			<h3>{{"Job description"|t}}</h3>	
+		</div>
+		<div class="c-accordion_content">
+			{{entry.careerJobDescription}}
+		</div>
+	</li>
+	<li class="c-accordion_li">
+		<div class="c-accordion_title">
+			<h3>{{"Qualifications & knowledge"|t}}</h3>	
+		</div>
+		<div class="c-accordion_content">
+			{{entry.careerQualificationsKnowledge}}
+		</div>
+	</li>
+	<li class="c-accordion_li">
+		<div class="c-accordion_title">
+			<h3>{{"Advantages"|t}}</h3>	
+		</div>
+		<div class="c-accordion_content">
+			{{entry.careerAdvantages}}
+		</div>
+	</li>
+
+{% for block in entry.careerOthersElements %}
+    {% if block.type == "careerOthersElementsTab" %}
+		<li class="c-accordion_li">
+			<div class="c-accordion_title">
+				<h3>{{block.careerOthersElementsTitle}}</h3>	
+			</div>
+			<div class="c-accordion_content">
+				{{block.careerOthersElementsContent}}
+			</div>
+		</li>
+    {% endif %}
+{% endfor %}
+	<li class="c-accordion_li">
+		<div class="c-accordion_title">
+			<h3>{{"Apply now"|t}}</h3>	
+		</div>
+		<div class="c-accordion_content">
+			{{entry.careerAdvantages}}
+		</div>
+	</li>
+</ul>

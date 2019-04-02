@@ -1,0 +1,29 @@
+<div>
+	<ul class="o-list-bare">
+		<li><p class="c-sidebar_title">Lieu</p>
+			{% if entry.careerPlace|length %}<span>{{entry.careerPlace}}{% else %}{{"n/a"|t}}</span>{% endif %}
+		</li>
+		<li><p class="c-sidebar_title">Type de poste</p>
+			{% if entry.careerTypesEmployment|length %}<span>{{entry.careerTypesEmployment}}{% else %}{{"n/a"|t}}</span>{% endif %}
+		</li>
+		<li><p class="c-sidebar_title">Horaire</p>
+			{% if entry.careerSchedule|length %}
+				{% for schedule in entry.careerSchedule%}
+					{% if schedule.type == "careerScheduleTab" %}
+						{% if schedule.careerScheduleType|length %}<span>{{schedule.careerScheduleType}}</span>{% endif %}
+						{% if schedule.careerScheduleType|length and schedule.careerScheduleWeek|length %}<br>{% endif %}
+						{% if schedule.careerScheduleWeek|length %}<span>{{schedule.careerScheduleWeek}}</span>{% endif %}
+					{% endif %}
+				{% endfor %}
+			{% else %}
+				<span>{{"n/a"|t}}</span>					
+			{% endif %}	
+		</li>
+		<li><p class="c-sidebar_title">Entrée en fonction</p>
+			{% if entry.careerEntryOperation|length %}<span>{{entry.careerEntryOperation}}{% else %}{{"n/a"|t}}</span>{% endif %}		
+		</li>
+		<li><p class="c-sidebar_title">Salaire</p>
+			{% if entry.careerSalary|length %}<span>{{entry.careerSalary}}{% else %}{{"n/a"|t}}</span>{% endif %}		
+		</li>
+	</ul>
+</div>

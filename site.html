@@ -1,0 +1,21 @@
+<!doctype html>
+	<html lang="{{craft.app.language}}">
+				<head>
+					<link rel="stylesheet" href="{{ craft.app.sites.primarySite.baseUrl }}assets/css/app.css">
+					<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Oswald" rel="stylesheet">
+				</head>	
+		<body class="{{entry.type}}">	
+
+			<header class="c-header {% if entry.type == 'availableJobs' or entry.type == 'contactUs' %}-mb-0{% endif %}">
+
+				{# NAVIGATION #} 	{% include '_components/navigation.html' %}
+
+				{# NAVIGATION #} 	{% include '_components/banner.html' %}
+
+			</header>
+			<main class="c-main">
+				{% block content %}{% endblock %}	
+			</main>
+			{# FOOTER #} 	{% include '_components/footer.html' %}
+		</body>
+	</html>					

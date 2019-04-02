@@ -1,0 +1,23 @@
+<section class="o-section c-accordion">
+	<div class="o-wrapper">
+		{% for items in entry.accordionList.all() %}
+			<h2>{{items.accordionListTitle}}</h2>
+			{% if items.bloc|length %}
+				<ul class="o-list-bare c-accordion_ul">
+					{% for content in items.bloc %}
+						{% if content.type == "accordionListTab" %}
+							<li class="c-accordion_li">
+								<div class="c-accordion_title">
+									<h3>{{content.accordionListTitle}}</h3>	
+								</div>
+								<div class="c-accordion_content">
+									{{content.accordionListContent}}
+								</div>
+							</li>
+						{% endif %}		
+					{% endfor %}
+				</ul>
+			{% endif %}
+		{% endfor %}
+	</div>
+</section>

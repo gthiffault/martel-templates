@@ -1,0 +1,22 @@
+{% set class 		= "" %}
+{% set background 	= "" %}
+{% set ratio 		= "" %}
+
+{% if entry.type == "home" or entry.type == "career" %}
+	{% set class = "-home" %}
+	{% set background = info.backgroundHome.one().url() %}
+	{% set ratio 	= "o-ratio--21:10" %}
+{% else %}
+	{% set class = "-page" %}
+	{% set background = info.pagesBg.one().url() %}
+	{% set ratio 	= "o-ratio--custom-one" %}	
+{% endif %}	
+
+<section class="o-section c-contact-us_link {{class}}">
+	<div class="c-contact-us_link_bg o-ratio {{ratio}}"  style="background: url('{{background}}')">
+		<div class="o-wrapper">
+			<h5>{{info.titre|nl2br}}</h5>
+			<a class="c-btn c-btn--secondary" href="">{{"Contact us"|t}}</a>
+		</div>
+	</div>
+</section>

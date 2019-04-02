@@ -1,0 +1,22 @@
+<section class="o-section c-section-w-sidebar {{sectionType}}">
+	
+	<div class="o-wrapper">
+		{% if entry.type == 'availableJobs' %}
+			<div class="c-btn--back">Retour aux offres</div>
+		{% endif %}
+		<div class="o-layout o-layout--flush">
+			<div class="o-layout__item c-content u-2/3">
+				{% if templateOptionZero is defined %}
+					{% set template = templateOptionZero %}
+					{% include "_components/" ~ template %}
+				{% endif %}
+			</div>
+			<aside class="o-layout__item c-sidebar u-1/3">
+				{% if templateOptionOne is defined %}
+					{% set template = templateOptionOne %}
+					{% include "_components/" ~ template %}
+				{% endif %}
+			</aside>
+		</div>		
+	</div>
+</section>

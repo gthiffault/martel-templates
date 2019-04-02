@@ -1,0 +1,20 @@
+<section class="o-section c-list">
+    <ul class="o-list-bare c-list_ul">
+        {% for block in entry.list %}
+            {% if block.type == "listTab" %}
+
+                <li class="c-grid-container {% if loop.index is divisible by(2) %}-even{% else %}-odd{% endif %}">
+                    <div class="c-grid-container__item -content">
+                        <div class="c-grid-container_text">
+                            <h4>{{ block.listSubtitle }}</h4>
+                            <h3>{{block.listTitle}}</h3>
+                            {{block.listContent}}
+                        </div>
+                    </div>
+                    <div class="o-ratio o-ratio--4:3@1440 c-grid-container__item -image" style="background: url('{{block.listImg.one().url()}}')">
+                    </div>                
+                </li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+</section>
