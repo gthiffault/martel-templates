@@ -1,5 +1,5 @@
 <section class="o-section c-home_projets">
-	<h2>{{"Our "}}<span class="c-title-w-color">{{"projects"}}</span></h2>
+	<h2>{{"Our "|t}}<span class="c-title-w-color">{{"projects"|t}}</span></h2>
 	{% set pages = craft.entries.section('achievements').level(1).limit(3).all() %}
     <ul class="o-layout">
         {% for page in pages %}
