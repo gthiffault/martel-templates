@@ -2,7 +2,7 @@
     {% block content %}
 <div class="c-project_navigation">
 {# Set parameters for prev/next elements list #}
-{% set params = craft.entries.section('achievements').order('title asc') %}
+{% set params = craft.entries.section('achievements').order('postDate DESC') %}
 {# Get the prev/next elements #}
 {% set prevEntry = entry.getPrev(params) %}
 {% set nextEntry = entry.getNext(params) %}
