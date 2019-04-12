@@ -1,6 +1,6 @@
 <section class="o-section c-home_clients">
 	<div class="o-wrapper -two">
-		<h2>{{"Our "}}<span class="c-title-w-color">{{"clients"}}</span></h2>
+		<h2>{{"Our "|t}}<span class="c-title-w-color">{{"clients"}}</span></h2>
 		<ul class="o-layout o-layout--middle o-layout--center o-layout--xlarge c-home_clients_ul">
 			{% for client in entry.clientsList.all() %}
 				{% if client.type == "clientsListTab" %}

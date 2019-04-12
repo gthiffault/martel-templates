@@ -1,5 +1,5 @@
 {# Fetch entries with a related category #}
-{% set entries = craft.entries().services(':notempty:').all() %}
+{% set entries = craft.entries().services(':notempty:').orderby('postDate DESC').all() %}
 {% set entries_displayed = [] %}
 {% set entries_displayedName = [] %}
 <section class="o-section c-navigation_projects">

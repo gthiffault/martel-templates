@@ -1,5 +1,5 @@
 <section class="o-section c-projects">
-	{% set pages = craft.entries.section('achievements').level(1).limit(12).all() %}
+	{% set pages = craft.entries.section('achievements').orderby('postDate DESC').level(1).limit(12).all() %}
     <ul class="o-layout c-projetcs_container">
         {% for page in pages %}
             <li class="o-layout__item c-projects_li mix service-{{page.services.one().id}} u-1/4">

@@ -1,6 +1,6 @@
 <section class="o-section c-home_services">
 	<div class="o-wrapper">
-		<h2>{{"Our "}}<span class="c-title-w-color">{{"services"}}</span></h2>
+		<h2>{{"Our "|t}}<span class="c-title-w-color">{{"services"}}</span></h2>
 		{% set pages = craft.entries.section('services').level(1).limit(3).all() %}
 	    <ul class="o-layout layout--equal-height">
 	        {% for page in pages %}
