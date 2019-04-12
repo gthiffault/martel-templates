@@ -9,7 +9,7 @@
 			{% for job in jobs %}
 				<li class="c-accordion_li">
 					<div class="c-accordion_title">
-						<h3>{{job.title}}</h3>	
+						<h3><a href="{{job.url()}}">{{job.title}}</a></h3>	
 					</div>
 				</li>
 			{% endfor %}

@@ -1,4 +1,10 @@
 {% extends "site.html" %}
     {% block content %}
-		{# CONTACT-US 	#} 	{% include '_components/template-zero' with {'sectionType': 'c-contact-us'} %}
+		{# CONTACT-US 	#} 	{% include '_components/template-one' with {
+			'sectionType': 'c-contact-us',
+			'templateOptionZero': 'google-maps',
+			'templateOptionOne':'contact-us_more-info'
+		} %}
+		{# CONTACT-US 	#} 	{% include '_components/form' %}
+		{# CONTACT-US 	#} 	{% include '_components/contact-us_link' %}
 	{% endblock %}

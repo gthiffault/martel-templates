@@ -2,7 +2,7 @@
 {% set background 	= "" %}
 {% set ratio 		= "" %}
 
-{% if entry.type == "home" or entry.type == "career" %}
+{% if entry.type == "home" or entry.type == "career"  or entry.type == "contactUs" %}
 	{% set class = "-home" %}
 	{% set background = info.backgroundHome.one().url() %}
 	{% set ratio 	= "o-ratio--21:10" %}
@@ -16,7 +16,11 @@
 	<div class="c-contact-us_link_bg o-ratio {{ratio}}"  style="background: url('{{background}}')">
 		<div class="o-wrapper">
 			<h5>{{info.titre|nl2br}}</h5>
-			<a class="c-btn c-btn--secondary" href="">{{"Contact us"|t}}</a>
+			{% if  entry.type != "contactUs" %}
+				<a class="c-btn c-btn--secondary" href="{{info.linkContactUs.one().url()}}">{{"Contact us"|t}}</a>
+			{% else %}	
+				<a class="c-btn c-btn--secondary" href="{{info.linkCareer.one().url()}}">{{"Join our team"|t}}</a>
+			{% endif %}	
 		</div>
 	</div>
 </section>

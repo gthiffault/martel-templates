@@ -1,0 +1,13 @@
+<div>
+	<ul class="o-list-bare">
+		<li><p class="c-sidebar_title">Téléphone</p>
+			{% if info.infoPhone|length %}<span>{{info.infoPhone}}{% else %}{{"n/a"|t}}</span>{% endif %}
+		</li>
+		<li><p class="c-sidebar_title">Courriel</p>
+			{% if info.infoEmail|length %}<span><a href="mailto:{{info.infoEmail}}">{{info.infoEmail}}</a>{% else %}{{"n/a"|t}}</span>{% endif %}		
+		</li>
+		<li><p class="c-sidebar_title">Adresse</p>
+			{% if info.infoAddress	|length %}<span>{{info.infoAddress|nl2br}}{% else %}{{"n/a"|t}}</span>{% endif %}		
+		</li>
+	</ul>
+</div>

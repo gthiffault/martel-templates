@@ -1,0 +1,20 @@
+{# Fetch entries with a related category #}
+{% set entries = craft.entries().services(':notempty:').all() %}
+{% set entries_displayed = [] %}
+{% set entries_displayedName = [] %}
+<section class="o-section c-navigation_projects">
+	<div class="o-wrapper">
+	    <ul class="o-list-bare controls">
+	    	<li class="filter-1" data-filter="all">{{"All"|t}}</li>
+	        {% for rel in entries %}
+	            {% if rel.services.one().id not in entries_displayed %}
+	            	{% set entries_displayed = entries_displayed|merge([rel.services.one().id]) %}
+	            	{% set entries_displayedName = entries_displayedName|merge([ { 'name':rel.services.one().title, 'value': rel.services.one().id} ] ) %}
+	            {% endif %}
+	        {% endfor %}
+	        {% for cat in entries_displayedName|sort %}
+	        	<li class="filter-1" data-filter=".service-{{cat['value']}}">{{ cat['name'] }}</li>
+	        {% endfor %}
+	    </ul>
+    </div>
+</section> 

@@ -1,0 +1,22 @@
+{% extends "site.html" %}
+    {% block content %}
+<div class="c-project_navigation">
+{# Set parameters for prev/next elements list #}
+{% set params = craft.entries.section('achievements').order('title asc') %}
+{# Get the prev/next elements #}
+{% set prevEntry = entry.getPrev(params) %}
+{% set nextEntry = entry.getNext(params) %}
+{# And make sure to only output the links if the element exists #}
+{% if prevEntry %}<a class="c-project_navigation_prev" href="{{ prevEntry.url }}"><span>Previous</span></a>{% endif %}
+{% if nextEntry %}<a class="c-project_navigation_next" href="{{ nextEntry.url }}"><span>Next</span></a>{% endif %}
+</div>
+
+		{# CONTACT-US 	#} 	{% include '_components/template-zero' with {'sectionType': 'c-project_single', 'templateOptionZero': 'project_content','templateOptionOne':'project_more-info'} %}
+<section>
+	<div class="grid effect-2" id="grid">
+		{% for img in entry.projectGalleryImages.all()%}
+			<div class="item"><img class="c-gallery_img" src="{{img.url()}}" alt="{{img.title}}"></div>
+		{% endfor %}
+	</div>
+</section>
+	{% endblock %}

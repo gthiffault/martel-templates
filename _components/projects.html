@@ -1,0 +1,18 @@
+<section class="o-section c-projects">
+	{% set pages = craft.entries.section('achievements').level(1).limit(12).all() %}
+    <ul class="o-layout c-projetcs_container">
+        {% for page in pages %}
+            <li class="o-layout__item c-projects_li mix service-{{page.services.one().id}} u-1/4">
+            	<a href="{{page.url()}}">
+                    <figure>
+                		{% if page.homeProjectsImg|length %}<img class="c-services_icon" src="{{page.homeProjectsImg.one().url}}" alt="{{page.homeProjectsImg.one().title}}">{% endif %}
+                		<figcaption>
+                			<h3>{{page.title}}<br>/ 0{{loop.index}}</h3>
+                			<div class="c-projects_services">{% if page.services|length %}<h4>{{page.services.one().title}}{% endif %}</h4></div>
+                		</figcaption>
+                	</figure>
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+</section>

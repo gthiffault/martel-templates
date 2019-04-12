@@ -2,7 +2,7 @@
 	<div class="o-wrapper">
 		<div class="c-navigation">
 			<div class="c-header_logo" aria-role="image">
-				<img src="{{ craft.app.sites.primarySite.baseUrl }}assets/images/logos/excavation-l-martel-inc_logo.svg" alt="Excavation L. Martel inc.">
+				<a href="{{siteUrl}}"><img src="{{ craft.app.sites.primarySite.baseUrl }}assets/images/logos/excavation-l-martel-inc_logo.svg" alt="Excavation L. Martel inc."></a>
 			</div>
 			<nav class="c-header_links" aria-label="Liens utiles" aria-des>
 				<ul class="o-list-bare c-navigation_ul">
@@ -28,7 +28,7 @@
 					    {% endif %}
 					{% endfor %}
 					<li class="c-phone">
-						<a href="tel:{{info.infoPhone}}" aria-label="Pour communiquer avec nous {{info.infoPhone}}" aria-disabled="true">{{info.infoPhone}}</a> 
+						<a href="tel:{{info.infoPhone}}" aria-label="Pour communiquer avec nous : {{info.infoPhone}}" aria-disabled="true">{{info.infoPhone}}</a> 
 					</li>	
 					<li class="c-facebook">
 						<a href="{{info.infoFacebook}}" target="_blank" aria-label="Consultez notre page facebook"></a>
@@ -36,7 +36,7 @@
 				</ul>
 			</nav>
 			<div class="c-header_button">
-				<button class="hamburger" type="button" aria-label="Affichez le menu principal" aria-role="Menu">
+				<button class="hamburger hamburger--spring" type="button" aria-label="Affichez le menu principal" aria-role="Menu">
   					<span class="hamburger-box">
     					<span class="hamburger-inner"></span>
   					</span>
@@ -44,4 +44,33 @@
 			</div>
 		</div>
 	</div>
+</div>
+
+
+{% set pages = craft.entries.section('mainMenu').level('<= 2').all() %}
+<div class="c-menu_dropdown">
+	<div class="o-wrapper">
+<nav>
+    <ul class="o-list-bare">
+        {% nav page in pages %}
+            <li>
+
+            	{% if page.menuLink|length%}
+                	<a href="{{page.menuLink.url()}}">{{ page.title }}</a>
+                {% else %}	
+                <a class="c-parent">
+                	{{ page.title }}
+                	<span></span>
+                </a>
+                {% endif %}
+                {% ifchildren %}
+                    <ul class="o-list-bare c-depth-one">
+                        {% children %}
+                    </ul>
+                {% endifchildren %}
+            </li>
+        {% endnav %}
+    </ul>
+</nav>
+</div>
 </div>

@@ -9,7 +9,7 @@
 	            		{% if page.servicesIcon|length %}<img class="c-home_services_icon" src="{{page.servicesIcon.one().url}}" alt="{{page.servicesIcon.one().title}}">{% endif %}
 	            		<h3>{{ page.title }}</h3>
 	            		<p>{{page.servicesDescription}}</p>
-	            		<a class="c-btn c-btn--primary">{{"Learn more"|t}}</a>
+	            		<a class="c-btn c-btn--primary" href="{{page.url()}}">{{"Learn more"|t}}</a>
 	            	</div>
 	            </li>
 	        {% endfor %}

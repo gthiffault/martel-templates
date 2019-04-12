@@ -1,0 +1,37 @@
+<section class="o-section c-form">
+	<div class="o-wrapper">
+	<h2>Write us</h2>	
+	<div class="c-form_wrap">
+		<form method="post" id="my-form" action="" accept-charset="UTF-8">
+		    {{ csrfInput() }}
+		    <input type="hidden" name="action" value="contact-form/send">
+		    {{ redirectInput('contact/thanks') }}
+
+
+        	<div class="c-input">
+        		<input class="u-1/1" id="from-name" type="text" name="fromName" value="{{ message.fromName ?? '' }}">
+            	<label>Votre nom*</label>
+        	</div>			    
+
+			<div class="o-layout">
+				<div class="o-layout__item c-input u-1/2">
+		    		<input id="from-email" type="email" name="fromEmail" value="{{ message.fromEmail ?? '' }}">
+		    		<label>Courriel*</label>
+				</div>
+				<div class="o-layout__item c-input u-1/2">
+		    		<input id="subject" type="text" name="subject" value="{{ message.subject ?? '' }}">
+		    		<label>Téléphone</label>
+		    	</div>
+		    </div>
+		    <div class="c-input">
+		    <textarea class="u-1/1" rows="10" cols="40" id="message" name="message">{{ message.message ?? '' }}</textarea>
+		    <label>Message*</label>
+			</div>
+		    <input type="submit" class="c-btn c-btn--secondary -form u-1/1" value="Send">
+	    
+		</form>
+		</div>
+	</div>	
+</section>
+
+
