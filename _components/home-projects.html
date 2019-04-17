@@ -3,7 +3,7 @@
 	{% set pages = craft.entries.section('achievements').level(1).limit(3).all() %}
     <ul class="o-layout">
         {% for page in pages %}
-            <li class="o-layout__item c-home_projects_li u-1/3">
+            <li class="o-layout__item c-home_projects_li u-1/3@landscape-large-tablet u-1/2@portrait-large-tablet">
                 <a href="{{page.url()}}">
             	   <figure>
                         {% if page.homeProjectsImg|length %}<img class="c-home_services_icon" src="{{page.homeProjectsImg.one().url}}" alt="{{page.homeProjectsImg.one().title}}">{% endif %}

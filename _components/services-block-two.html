@@ -1,13 +1,14 @@
 <section class="o-section c-services-one">
 	<div class="o-wrapper -three">
-		<div class="c-services_flex">
-			<div class="c-image">
-				{% if entry.servicesBlockTwoImage|length %}<img src="{{entry.servicesBlockTwoImage.one().url('services')}}" alt="">{% endif %}
-			</div>			
-			<div class="c-services_content">
+		<div class="c-services_flex o-layout o-layout--reverse">
+		
+			<div class="c-services_content o-layout__item">
 				<h2>{{entry.servicesBlockTwoTitle}}</h2>
 				{{entry.servicesBlockTwoContent}}
 			</div>
+			<div class="c-image o-layout__item">
+				{% if entry.servicesBlockTwoImage|length %}<img src="{{entry.servicesBlockTwoImage.one().url('services')}}" alt="">{% endif %}
+			</div>				
 		</div>
 	</div>
 </section>
