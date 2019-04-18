@@ -6,7 +6,9 @@
 				{{entry.servicesBlockOneContent}}
 			</div>
 			<div class="c-image">
-				{% if entry.servicesBlockOneImage|length %}<img src="{{entry.servicesBlockOneImage.one().url('services')}}" alt="">{% endif %}
+				<div class="c-image_bg">
+					{% if entry.servicesBlockOneImage|length %}<img src="{{entry.servicesBlockOneImage.one().url('services')}}" alt="">{% endif %}
+				</div>
 			</div>
 		</div>
 	</div>
