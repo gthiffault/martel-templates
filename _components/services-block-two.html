@@ -7,7 +7,9 @@
 				{{entry.servicesBlockTwoContent}}
 			</div>
 			<div class="c-image o-layout__item">
-				{% if entry.servicesBlockTwoImage|length %}<img src="{{entry.servicesBlockTwoImage.one().url('services')}}" alt="">{% endif %}
+				<div class="c-image_bg">
+					{% if entry.servicesBlockTwoImage|length %}<img src="{{entry.servicesBlockTwoImage.one().url('services')}}" alt="">{% endif %}
+				</div>
 			</div>				
 		</div>
 	</div>

@@ -7,7 +7,9 @@
 				{{entry.servicesBlockThreeContent}}
 			</div>
 			<div class="c-image">
-				{% if entry.servicesBlockThreeImage|length %}<img src="{{entry.servicesBlockThreeImage.one().url('services')}}" alt="">{% endif %}
+				<div class="c-image_bg">
+					{% if entry.servicesBlockThreeImage|length %}<img src="{{entry.servicesBlockThreeImage.one().url('services')}}" alt="">{% endif %}
+				</div>
 			</div>
 		</div>
 	</div>
