@@ -22,7 +22,7 @@
 		{% else %}
 			<div class="c-banner_hero-image">
 				{% set linkedEntry = craft.entries.id(4).first() %}
-				<div class="c-hero-image" style="background: url('{{linkedEntry.bannerImg.one().url()}}');">
+				<div class="c-hero-image" style="background: url('{{info.bannerImg.one().url()}}');">
 					<div class="c-banner_content">
 						{% if entry.type == "achievements" %}
 							<p class="c-subtitle-page">Nos projets</p>
