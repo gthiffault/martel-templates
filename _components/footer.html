@@ -2,25 +2,25 @@
 	<div class="c-footer_info">
 		<div class="o-wrapper">
 			<div class="o-layout">
-				<div class="o-layout__item u-1/4">
+				<div class="o-layout__item u-1/4@landscape-medium-tablet u-1/2@portrait-small-tablet -logo">
 					<img src="{{ craft.app.sites.primarySite.baseUrl }}assets/images/logos/excavation-l-martel-logo-footer.svg" alt="Excavation L. Martel inc.">
 				</div>
-				<div class="o-layout__item u-1/4">
+				<div class="o-layout__item u-1/4@landscape-medium-tablet u-1/2@portrait-small-tablet">
 					<p class="c-footer_title">{{"Links"|t}}</p>
-{% set pages = craft.entries.section('menuSecondary').level(1).all() %}
-<nav>
-    <ul class="o-list-bare">
-        {% for page in pages %}
-            <li><a href="{{page.menuLink.url()}}">{{ page.title }}</a></li>
-        {% endfor %}
-    </ul>
-</nav>					
+					{% set pages = craft.entries.section('menuSecondary').level(1).all() %}
+					<nav>
+					    <ul class="o-list-bare">
+					        {% for page in pages %}
+					            <li><a href="{{page.menuLink.url()}}">{{ page.title }}</a></li>
+					        {% endfor %}
+					    </ul>
+					</nav>					
 				</div>
-				<div class="o-layout__item u-1/4">
+				<div class="o-layout__item u-1/4@landscape-medium-tablet u-1/2@portrait-small-tablet">
 					<p class="c-footer_title">{{"Visit us"|t}}</p>
 					<p>{{info.infoAddress|nl2br}}</p>
 				</div>
-				<div class="o-layout__item u-1/4">
+				<div class="o-layout__item u-1/4@landscape-medium-tablet u-1/2@portrait-small-tablet">
 					<p class="c-footer_title">{{"Contact Us"|t}}</p>
 					<p>{{info.infoPhone}}
 					<br><a href="mailto:{{info.infoEmail}}">{{info.infoEmail}}</a></p>

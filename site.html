@@ -1,23 +1,41 @@
 <!doctype html>
-	<html lang="{{craft.app.language}}">
-				<head>
-					<link rel="stylesheet" href="{{ craft.app.sites.primarySite.baseUrl }}assets/css/app.css">
-					<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Oswald" rel="stylesheet">
-					<meta name="viewport" content="width=device-width, initial-scale=1.0">
-				</head>	
-		<body class="{% if entry is defined %}{{entry.type}}{% endif %}">	
-
+<html lang="{{craft.app.language}}">
+	<head>
+		<link rel="stylesheet" href="{{ craft.app.sites.primarySite.baseUrl }}assets/css/app.css">
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Oswald" rel="stylesheet">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>	
+	<body id="barba-wrapper">
+	<style>
+		.c-load-pages {
+			background: #29272C;
+			position: fixed;
+			height: 100%;
+			width: 100%;
+			z-index: 999;
+		}
+		.c-load-pages_logo {
+			position: fixed;
+			top: 50%;
+			left: 50%;
+			margin-left: -84px;
+			margin-top: 0;
+			z-index: 1000
+		}
+	</style>	
+		<div  class="barba-container lang-{{craft.app.language}} {% if entry is defined %}{{entry.type}}{% endif %}" data-namespace="page">
+			<div class="c-load-pages">
+				<img class="c-load-pages_logo" src="{{ craft.app.sites.primarySite.baseUrl }}assets/images/logos/excavation-l-martel-logo-footer.svg" alt="Excavation L. Martel inc.">
+			</div>
 			<header class="c-header {% if entry is defined %}{% if entry.type == 'availableJobs' or entry.type == 'contactUs'  or entry.type == 'achievements' %}-mb-0{% endif %}{% endif %}">
-
 				{# NAVIGATION #} 	{% include '_components/navigation.html' %}
-
 				{# NAVIGATION #} 	{% include '_components/banner.html' %}
-
 			</header>
 			<main class="c-main {% if entry is defined %} {% if entry.type == 'services'%}-bg-zero{% endif %}{% endif %}">
 				{% block content %}{% endblock %}	
 			</main>
 			{# FOOTER #} 	{% include '_components/footer.html' %}
-			<script src="{{ craft.app.sites.primarySite.baseUrl }}assets/script/app.js"></script>
-		</body>
-	</html>					
+			<script async src="{{ craft.app.sites.primarySite.baseUrl }}assets/script/app.js"></script>
+		</div>
+	</body>
+</html>					

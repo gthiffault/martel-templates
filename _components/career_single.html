@@ -1,4 +1,30 @@
 <h2>{{entry.title}}</h2>
+
+<div>
+	<ul class="o-list-bare">
+		{% if entry.careerPlace|length %}<li><p class="c-sidebar_title">Lieu</p><span>{{entry.careerPlace}}</span></li>{% endif %}
+		
+		{% if entry.careerTypesEmployment|length %}<li><p class="c-sidebar_title">Type de poste</p><span>{{entry.careerTypesEmployment}}</span></li>{% endif %}
+		
+		{% if entry.careerSchedule|length %}<li><p class="c-sidebar_title">Horaire</p>
+				{% for schedule in entry.careerSchedule%}
+					{% if schedule.type == "careerScheduleTab" %}
+						{% if schedule.careerScheduleType|length %}<span>{{schedule.careerScheduleType}}</span>{% endif %}
+						{% if schedule.careerScheduleType|length and schedule.careerScheduleWeek|length %}<br>{% endif %}
+						{% if schedule.careerScheduleWeek|length %}<span>{{schedule.careerScheduleWeek}}</span>{% endif %}
+					{% endif %}
+				{% endfor %}
+						</li>
+			{% endif %}	
+
+		{% if entry.careerEntryOperation|length %}<li><p class="c-sidebar_title">Entrée en fonction</p><span>{{entry.careerEntryOperation}}</li></span>{% endif %}		
+		
+		{% if entry.careerSalary|length %}<li><p class="c-sidebar_title">Salaire</p><span>{{entry.careerSalary}}</li></span>{% endif %}		
+		
+	</ul>
+</div>
+
+
 <ul class="c-accordion_ul">
 	<li class="c-accordion_li">
 		<div class="c-accordion_title">
