@@ -1,16 +1,8 @@
 <div>
 	<ul class="o-list-bare">
-		<li><p class="c-sidebar_title">Client</p>
-			{% if entry.projectClient|length %}<span>{{entry.projectClient}}{% else %}{{"n/a"|t}}</span>{% endif %}
-		</li>
-		<li><p class="c-sidebar_title">Année</p>
-			{% if entry.projectYear|length %}<span>{{entry.projectYear}}{% else %}{{"n/a"|t}}</span>{% endif %}
-		</li>
-		<li><p class="c-sidebar_title">Lieu</p>
-			{% if entry.projectPlace|length %}<span>{{entry.projectPlace}}{% else %}{{"n/a"|t}}</span>{% endif %}		
-		</li>
-		<li><p class="c-sidebar_title">Secteur d'activité</p>
-			{% if entry.projectActivityArea	|length %}<span>{{entry.projectActivityArea	}}{% else %}{{"n/a"|t}}</span>{% endif %}		
-		</li>
+		{% if entry.projectClient|length %}<li><p class="c-sidebar_title">Client</p><span>{{entry.projectClient}}</li>{% else %}</span>{% endif %}
+		{% if entry.projectYear|length %}<li><p class="c-sidebar_title">Année</p><span>{{entry.projectYear}}</li>{% else %}</span>{% endif %}
+		{% if entry.projectPlace|length %}<li><p class="c-sidebar_title">Lieu</p><span>{{entry.projectPlace}}</li>{% else %}</span>{% endif %}		
+		{% if entry.projectActivityArea	|length %}<li><p class="c-sidebar_title">Secteur d'activité</p><span>{{entry.projectActivityArea}}</li>{% else %}</span>{% endif %}		
 	</ul>
 </div>

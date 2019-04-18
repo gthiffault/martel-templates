@@ -61,18 +61,8 @@
 		</li>
     {% endif %}
 {% endfor %}
-	<li class="c-accordion_li">
-		<div class="c-accordion_title">
-			<h3>{{"Apply now"|t}}</h3>	
-			<div class="c-accordion-toggle -hidden">
-				<div class="c-accordion-toggle-x">
-					<div class="horizontal"></div>
-					<div class="vertical"></div>
-				</div>
-			</div>				
-		</div>
-		<div class="c-accordion_content">
-			Formulaire à venir
-		</div>
-	</li>
 </ul>
+<div class="c-form-accordion">
+	<h3>{{"Apply now"|t}}</h3>
+	{# CONTACT-US 	#} 	{% include '_components/form-career' %}						
+</div>						

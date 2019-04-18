@@ -12,11 +12,33 @@
 </div>
 
 		{# CONTACT-US 	#} 	{% include '_components/template-zero' with {'sectionType': 'c-project_single', 'templateOptionZero': 'project_content','templateOptionOne':'project_more-info'} %}
-<section>
-	<div class="grid effect-2" id="grid">
+<section class="c-gallery">
+	<div class="o-wrapper">
+		<h2>Images du projet</h2>
+{# 	<div class="grid effect-2" id="grid">
 		{% for img in entry.projectGalleryImages.all()%}
 			<div class="item"><img class="c-gallery_img" src="{{img.url()}}" alt="{{img.title}}"></div>
 		{% endfor %}
-	</div>
+	</div> #}
+
+{% for block in entry.gallery.all() %}
+
+    {% if block.type == "bloc" %}
+    	<div class="c-grid-container {% if loop.index is divisible by(2) %}-even{% else %}-odd{% endif %}">
+        	<div class="c-grid-container__item -vertical"><div class="o-ratio o-ratio--image-vertical" style=" background: url({{ block.galleryImgVertical.one().url() }})"></div>
+        </div>
+        	<div class="c-grid-container__item -horizontal -first">
+				<div class="o-ratio o-ratio--image-horizontal" style="background: url({{ block.galleryImgHorizontal.one().url() }})"></div>
+			</div>
+        	<div class="c-grid-container__item -horizontal -last">
+				<div class="o-ratio o-ratio--image-horizontal" style="background: url({{ block.galleryImgHorizontal.last().url() }})"></div>
+			</div>			
+		</div>
+    {% endif %}
+
+{% endfor %}
+</div>
+
+
 </section>
 	{% endblock %}
